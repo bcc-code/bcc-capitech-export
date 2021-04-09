@@ -31,7 +31,7 @@ namespace BCC.Capitech.Functions
             services.AddSingleton<CapitechClient>();
             services.AddScoped<DataImportService>();
 
-            var connectionString = config.GetValue<string>("DbConnectionString");
+            var connectionString = config.GetConnectionString("DbConnectionString");
 
             //services.AddDbContext<CapitechDataContext>(options => options.UseSqlServer(connectionString, opt => opt.MigrationsAssembly("BCC.Capitech.Store")));
             if (!string.IsNullOrEmpty(connectionString))

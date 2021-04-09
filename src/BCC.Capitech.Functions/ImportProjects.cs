@@ -17,9 +17,9 @@ namespace BCC.Capitech.Functions
         public DataImportService ImportSvc { get; }
 
         [FunctionName("ImportProjects")]
-        public async Task Run([TimerTrigger("* */4 * * *", 
+        public async Task Run([TimerTrigger("* */4 * * *" 
         #if DEBUG
-             RunOnStartup= true
+             , RunOnStartup= true
         #endif
             )]TimerInfo myTimer, ILogger log)
         {
