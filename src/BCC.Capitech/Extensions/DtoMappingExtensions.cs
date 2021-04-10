@@ -9,7 +9,7 @@ namespace BCC.Capitech
     {
         public static T MapFromDto<T>(this T obj, object dto)
         {
-            obj.InjectFrom<DtoMapper>(dto);
+            obj.InjectFrom<DtoMapper>(dto); 
             return obj;
         }
     }

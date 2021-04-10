@@ -24,7 +24,8 @@ namespace BCC.Capitech
                 (tp.PropertyType == typeof(DateTime) || tp.PropertyType == typeof(DateTime?))
                )
             {
-                if (source == null)
+                var value = sp.GetValue(source);
+                if (value == null)
                 {
                     if (tp.PropertyType == typeof(DateTime?))
                     {
@@ -37,11 +38,13 @@ namespace BCC.Capitech
                 }
                 else
                 {
-                    tp.SetValue(target, ((DateTimeOffset)source).DateTime);
+                    tp.SetValue(target, ((DateTimeOffset)value).DateTime);
                 }
             }
-
-            base.SetValue(source, target, sp, tp);
+            else
+            {
+                base.SetValue(source, target, sp, tp);
+            }
         }
     }
 }
