@@ -12,16 +12,16 @@ using Newtonsoft.Json;
 
 namespace BCC.Capitech.Functions
 {
-    public class ImportProjectsHttp
+    public class ExportCatalogueOnDemand
     {
-        public ImportProjectsHttp(DataImportService importSvc)
+        public ExportCatalogueOnDemand(DataImportService importSvc)
         {
             ImportSvc = importSvc;
         }
 
         public DataImportService ImportSvc { get; }
 
-        [FunctionName("ImportProjectsHttp")]
+        [FunctionName("ExportCatalogueOnDemand")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -29,7 +29,7 @@ namespace BCC.Capitech.Functions
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             log.LogInformation("Starting import of projects.");
-            await ImportSvc.ImportProjectsAsync(100);
+            await ImportSvc.ImportCatalogueAsync(100);
             log.LogInformation("Completed import of projects.");
 
             return new OkResult();

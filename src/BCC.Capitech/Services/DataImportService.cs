@@ -13,7 +13,7 @@ namespace BCC.Capitech.Services
 {
     public class DataImportService : IDataImportService
     {
-        public static DateTime MIN_FROM_DATE = new DateTime(2017, 6, 1);
+        public static DateTime MIN_FROM_DATE = new DateTime(2020, 1, 1);
         public DataImportService(CapitechClient api, ICapitechDataService data)
         {
             Api = api;

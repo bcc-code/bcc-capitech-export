@@ -7,25 +7,25 @@ using Microsoft.Extensions.Logging;
 
 namespace BCC.Capitech.Functions
 {
-    public class ImportProjects
+    public class ExportCatalogue
     {
-        public ImportProjects(DataImportService importSvc)
+        public ExportCatalogue(DataImportService importSvc)
         {
             ImportSvc = importSvc;
         }
 
         public DataImportService ImportSvc { get; }
 
-        [FunctionName("ImportProjects")]
-        public async Task Run([TimerTrigger("* */4 * * *" 
+        [FunctionName("ExportCatalogue")]
+        public async Task Run([TimerTrigger("0 0 * * *" // Runs every day at 1am
         #if DEBUG
              , RunOnStartup= true
         #endif
             )]TimerInfo myTimer, ILogger log)
         {
-            log.LogInformation("Starting import of projects.");
-            await ImportSvc.ImportProjectsAsync(100);
-            log.LogInformation("Completed import of projects.");
+            log.LogInformation("Starting import of catalogue (projects etc).");
+            await ImportSvc.ImportCatalogueAsync(100);
+            log.LogInformation("Completed import of catalogue.");
         }
     }
 }
