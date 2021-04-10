@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCC.Capitech.Functions", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0CE42EE5-D10B-48EE-9857-B7B27CD00E99}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\master_bcc-capitech-data-export.yml = .github\workflows\master_bcc-capitech-data-export.yml
+		.github\workflows\master_bcc-capitech-export.yml = .github\workflows\master_bcc-capitech-export.yml
 	EndProjectSection
 EndProject
 Global
