@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public OperationalPlan() { }
         public OperationalPlan(OperationalPlanDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DateImported = DateTimeOffset.Now;
         }
 

@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public TaskInfo() { }
         public TaskInfo(TaskDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DateImported = DateTimeOffset.Now;
         }
 

@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public Order(){}
         public Order(OrderDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DateImported = DateTimeOffset.Now;
         }
 

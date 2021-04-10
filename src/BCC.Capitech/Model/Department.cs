@@ -14,7 +14,7 @@ namespace BCC.Capitech.Model
 
         public Department(DepartmentDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             DateImported = DateTimeOffset.Now;
         }
 

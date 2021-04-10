@@ -13,7 +13,7 @@ namespace BCC.Capitech.Model
         }
         public Competence(CompetenceDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             DateImported = DateTimeOffset.Now;
         }
 

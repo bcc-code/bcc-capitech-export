@@ -12,7 +12,7 @@ namespace BCC.Capitech.Model
 
         public DutyType(DutyTypeDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DateImported = DateTimeOffset.Now;
         }
 

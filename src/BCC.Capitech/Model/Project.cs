@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public Project() { }
         public Project(ProjectDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DateImported = DateTimeOffset.Now;
         }
 

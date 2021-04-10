@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public FreeDimension2() { }
         public FreeDimension2(FreeDimension2Dto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DateImported = DateTimeOffset.Now;
         }
         public int FreeDimension2Id { get; set; }

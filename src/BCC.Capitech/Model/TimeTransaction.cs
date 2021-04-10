@@ -13,7 +13,7 @@ namespace BCC.Capitech.Model
         public TimeTransaction() { }
         public TimeTransaction(TimeTransactionDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             if (!string.IsNullOrEmpty(dto.ApprovedLevelOneOn) && DateTime.TryParseExact(dto.ApprovedLevelOneOn, "dd.MM.yyyy HH.mm.ss", NbNoCulture, DateTimeStyles.AssumeLocal, out DateTime date1))
             {
                 this.ApprovedLevelOneOn = date1;

@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public Employee() { }
         public Employee(PersonalInformationDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             DateImported = DateTimeOffset.Now;
 
         }

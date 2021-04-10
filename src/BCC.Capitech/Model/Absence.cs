@@ -15,7 +15,7 @@ namespace BCC.Capitech.Model
 
         public Absence(AbsenceDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             DateImported = DateTimeOffset.Now;
         }
 

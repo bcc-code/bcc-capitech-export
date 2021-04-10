@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public DutyDefinition() { }
         public DutyDefinition(DutyDefinitionDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.Start = dto.Start?.AsTimeSpan();
             this.End = dto.End?.AsTimeSpan();
             this.BreakStart = dto.BreakStart?.AsTimeSpan();

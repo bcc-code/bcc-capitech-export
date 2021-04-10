@@ -15,7 +15,7 @@ namespace BCC.Capitech.Model
 
         public AbsenceTransaction(AbsenceTransactionDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DayAbsencePercent = dto.DayAbsencePersent;
             DateImported = DateTimeOffset.Now;
         }

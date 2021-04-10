@@ -29,9 +29,9 @@ namespace BCC.Capitech.Functions
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            log.LogInformation("Starting import of projects.");
+            log.LogInformation("Starting export of time transactions to SQL.");
             await ImportSvc.ImportTimeTransactionsAsync(100, DateTime.Today.AddMonths(-3), DateTime.Today.AddDays(1), null);
-            log.LogInformation("Completed import of projects.");
+            log.LogInformation("Completed export of time transactions.");
 
             return new OkResult();
         }

@@ -11,7 +11,7 @@ namespace BCC.Capitech.Model
         public Phase() { }
         public Phase(PhaseDto dto)
         {
-            this.InjectFrom(dto);
+            this.MapFromDto(dto);
             this.DateImported = DateTimeOffset.Now;
         }
 
