@@ -28,9 +28,11 @@ namespace BCC.Capitech.Functions
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
+            log.LogInformation("Starting import of projects.");
             await ImportSvc.ImportProjectsAsync(100);
+            log.LogInformation("Completed import of projects.");
 
-            return new OkObjectResult(null);
+            return new OkResult();
         }
     }
 }

@@ -23,7 +23,9 @@ namespace BCC.Capitech.Functions
         #endif
             )]TimerInfo myTimer, ILogger log)
         {
+            log.LogInformation("Starting import of projects.");
             await ImportSvc.ImportProjectsAsync(100);
+            log.LogInformation("Completed import of projects.");
         }
     }
 }
