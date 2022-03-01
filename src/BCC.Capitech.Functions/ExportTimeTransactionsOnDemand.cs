@@ -30,7 +30,11 @@ namespace BCC.Capitech.Functions
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             log.LogInformation("Starting export of time transactions to SQL.");
-            await ImportSvc.ImportTimeTransactionsAsync(100, DateTime.Today.AddMonths(-3), DateTime.Today.AddDays(1), null);
+            var dateFrom = DateTime.Today.AddMonths(-3);
+            var dateTo = DateTime.Today.AddDays(1);
+            await ImportSvc.ImportTimeTransactionsAsync(100, dateFrom, dateTo, null);
+            await ImportSvc.ImportAbsencesAsync(100, dateFrom, dateTo);
+            await ImportSvc.ImportAbsenceTransactionsAsync(100, dateFrom, dateTo);
             log.LogInformation("Completed export of time transactions.");
 
             return new OkResult();

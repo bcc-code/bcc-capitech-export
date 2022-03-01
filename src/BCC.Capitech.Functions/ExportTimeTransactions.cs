@@ -24,7 +24,11 @@ namespace BCC.Capitech.Functions
             )]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation("Starting import of time transactions.");
-            await ImportSvc.ImportTimeTransactionsAsync(100, DateTime.Today.AddMonths(-3), DateTime.Today.AddDays(1), null);
+            var dateFrom = DateTime.Today.AddMonths(-3);
+            var dateTo = DateTime.Today.AddDays(1);
+            await ImportSvc.ImportTimeTransactionsAsync(100, dateFrom, dateTo, null);
+            await ImportSvc.ImportAbsencesAsync(100, dateFrom, dateTo);
+            await ImportSvc.ImportAbsenceTransactionsAsync(100, dateFrom, dateTo);
             log.LogInformation("Completed import of time transactions.");
         }
     }
