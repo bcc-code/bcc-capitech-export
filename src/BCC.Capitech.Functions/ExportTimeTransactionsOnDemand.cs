@@ -33,7 +33,7 @@ namespace BCC.Capitech.Functions
             var dateFrom = DateTime.Today.AddMonths(-3);
             var dateTo = DateTime.Today.AddDays(1);
             await ImportSvc.ImportTimeTransactionsAsync(100, dateFrom, dateTo, null);
-            //await ImportSvc.ImportAbsencesAsync(100, dateFrom, dateTo);
+            await ImportSvc.ImportAbsencesAsync(100, dateFrom, dateTo);
             await ImportSvc.ImportAbsenceTransactionsAsync(100, dateFrom, dateTo);
             log.LogInformation("Completed export of time transactions.");
 
