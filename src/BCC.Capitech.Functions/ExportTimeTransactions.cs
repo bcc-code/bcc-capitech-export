@@ -24,7 +24,9 @@ namespace BCC.Capitech.Functions
             )]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation("Starting import of time transactions.");
-            var dateFrom = DateTime.Today.AddMonths(-3);
+            var beginningOfYear = new DateTime(DateTime.Today.Year, 1, 1);
+            var twoMonths = DateTime.Today.AddMonths(-2);
+            var dateFrom = (DateTime.Now.Hour == 1) ? beginningOfYear : twoMonths;
             var dateTo = DateTime.Today.AddDays(1);
             await ImportSvc.ImportTimeTransactionsAsync(100, dateFrom, dateTo, null);
             await ImportSvc.ImportAbsencesAsync(100, dateFrom, dateTo);
