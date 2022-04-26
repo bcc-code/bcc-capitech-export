@@ -17,7 +17,7 @@ namespace BCC.Capitech.Functions
         public DataImportService ImportSvc { get; }
 
         [FunctionName("ExportTimeTransactions")]
-        public async Task Run([TimerTrigger("0 1 * * *" //Runs every day at 1am
+        public async Task Run([TimerTrigger("0 * * * *" //Every hour
         #if DEBUG
              , RunOnStartup= true
         #endif
