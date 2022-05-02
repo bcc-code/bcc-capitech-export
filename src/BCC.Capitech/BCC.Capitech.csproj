@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <UserSecretsId>6e379253-8c06-4bee-84a1-7236694dc0b4</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Capitech.Client" Version="1.0.1" />
+    <PackageReference Include="Capitech.Client" Version="1.0.2" />
     <PackageReference Include="ValueInjecter" Version="3.2.0" />
   </ItemGroup>
 

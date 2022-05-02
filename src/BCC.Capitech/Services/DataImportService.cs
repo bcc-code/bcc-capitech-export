@@ -334,7 +334,7 @@ namespace BCC.Capitech.Services
 
         public async Task ImportProjectsAsync(int clientId)
         {
-            var projects = (await Api.Catalogue.GetProjectsAsync(clientId)).Select(p => new Project(p)).ToList();
+            var projects = (await Api.Catalogue.GetProjectsAsync(clientId, includePassive: true)).Select(p => new Project(p)).ToList();
             var subProjects = new List<SubProject>();
             var phases = new List<Phase>();
             foreach (var project in projects)
