@@ -166,8 +166,8 @@ namespace BCC.Capitech.Services
 
             // Only remove items missing from within the date range
             await ImportItems(clientId, remoteItems,
-                t => (t.FromDate.HasValue && t.FromDate.Value.Date >= from.Date && t.FromDate.Value.Date <= to.Date) || (t.EndDate.HasValue && t.EndDate.Value.Date >= from.Date && t.EndDate.Value.Date <= to.Date), // Only items within the date range should be deleted if missing
-                t => (t.FromDate.HasValue && t.FromDate >= localFilterFrom && t.FromDate <= localFilterTo) || (t.EndDate.HasValue && t.EndDate >= localFilterFrom && t.EndDate <= localFilterTo) // Limit number of local items to retreive to reasonable limits
+                t => (t.FromDate.HasValue && t.FromDate.Value.Date >= from.Date && t.FromDate.Value.Date <= to.Date) || (t.EndDate.HasValue && t.EndDate.Value.Date >= from.Date && t.EndDate.Value.Date <= to.Date) // Only items within the date range should be deleted if missing
+               // t => (t.FromDate.HasValue && t.FromDate >= localFilterFrom && t.FromDate <= localFilterTo) || (t.EndDate.HasValue && t.EndDate >= localFilterFrom && t.EndDate <= localFilterTo) // Limit number of local items to retreive to reasonable limits
             );
         }
 
