@@ -161,7 +161,8 @@ namespace BCC.Capitech.Services
             var localFilterFrom = minLocalFilterFrom < from ? minLocalFilterFrom : from.AddMonths(-updateWindowInMonths);
             var localFilterTo = DateTime.Today.AddDays(1); // Assume 
 
-            var remoteItems = (await Api.Absence.GetAbsencesAsync(clientId, from.Date, to.Date)).Select(s => new Absence(s)).ToList();
+            var remoteItems = (await Api.Absence.GetAbsencesAsync(clientId, from.Date, to.Date)).Select(s => new Absence(s)).ToList().Distinct(new AbsenseEqualityComparer()).ToList();
+
 
             // Only remove items missing from within the date range
             await ImportItems(clientId, remoteItems,
@@ -169,6 +170,20 @@ namespace BCC.Capitech.Services
                 t => (t.FromDate.HasValue && t.FromDate >= localFilterFrom && t.FromDate <= localFilterTo) || (t.EndDate.HasValue && t.EndDate >= localFilterFrom && t.EndDate <= localFilterTo) // Limit number of local items to retreive to reasonable limits
             );
         }
+
+        private class AbsenseEqualityComparer : IEqualityComparer<Absence>
+        {
+            public bool Equals(Absence a, Absence b)
+            {
+                return a.ClientId == b.ClientId && a.AbsenceId == b.AbsenceId;
+            }
+
+            public int GetHashCode(Absence obj)
+            {
+                return obj.GetHashCode();
+            }
+        }
+
 
         public async Task ImportTimeTransactionsAsync(int? clientId, DateTime from, DateTime to, DateTime? updatedSince)
         {
